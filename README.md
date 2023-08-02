@@ -46,6 +46,8 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+</pre>
+
 5. **Access the Application:**
    Open your web browser and go to http://127.0.0.1:8000/ to access the Hotel Reservations System.
 
