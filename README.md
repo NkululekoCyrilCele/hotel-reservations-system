@@ -20,36 +20,27 @@ The "Hotel Reservations System" is a web application built using Python and Djan
 - Install Django using `pip`: `pip install django`
 
 2. **Clone the Repository:**
-<pre>
 
 ```bash
 git clone https://github.com/your-username/hotel-reservations-system.git
 cd hotel-reservations-system
 ```
 
-</pre>
-
 3. **Create and Apply Migrations:**
-<pre>
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-</pre>
-
 4. **Run the Development Server:**
-<pre>
 
 ```bash
 python manage.py runserver
 ```
 
-</pre>
-
 5. **Access the Application:**
-   Open your web browser and go to http://127.0.0.1:8000/ to access the Hotel Reservations System.
+   Open your web browser and go to `http://127.0.0.1:8000/` to access the Hotel Reservations System.
 
 ### Usage
 
@@ -65,7 +56,7 @@ We welcome contributions to the "Hotel Reservations System." If you find any bug
 
 This project is licensed under the [MIT License](https://opensource.org/license/mit/).
 
-###Acknowledgments
+### Acknowledgments
 
 - The project was inspired by the need for an efficient hotel reservations system to streamline the booking process and guest management.
   -Special thanks to the Django community for providing a powerful and flexible framework.
