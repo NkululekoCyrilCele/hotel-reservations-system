@@ -22,7 +22,7 @@ The "Hotel Reservations System" is a web application built using Python and Djan
 2. **Clone the Repository:**
 
 ```bash
-git clone https://github.com/your-username/hotel-reservations-system.git
+git clone https://github.com/NkululekoCyrilCele/hotel-reservations-system.git
 cd hotel-reservations-system
 ```
 
@@ -62,7 +62,5 @@ This project is licensed under the [MIT License](https://opensource.org/license/
   -Special thanks to the Django community for providing a powerful and flexible framework.
 
 We hope you find the "Hotel Reservations System" useful for your hotel business. If you have any questions or need assistance, please don't hesitate to contact us. Happy booking!
-
-(Replace `your-username` in the clone URL with your actual GitHub username)
 
 This README file provides users with essential information about the project, including installation instructions, usage guidelines, contributing details, and licensing information. It helps users understand the purpose of the project and how to set it up for use or further development.
