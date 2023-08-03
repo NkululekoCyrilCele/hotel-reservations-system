@@ -27,9 +27,25 @@ class Guest(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     address = models.TextField(blank=True)
+    room_type = models.CharField(
+        max_length=10, choices=Room.ROOM_TYPES, default="single")
 
     def __str__(self):
         return self.name
 
     class Meta:
         ordering = ["name"]
+
+
+class Reservation(models.Model):
+    guest = models.ForeignKey(Guest, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    check_in_date = models.DateField()
+    check_out_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Reservation for {self.guest.name} - Room {self.room.room_number}"
+
+    class Meta:
+        ordering = ["-created_at"]
