@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Room
+from .models import Room, Guest
 
 
 class RoomAdmin(admin.ModelAdmin):
@@ -9,3 +9,11 @@ class RoomAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Room, RoomAdmin)
+
+
+class GuestAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "phone", "address")
+    search_fields = ("name", "email", "phone")
+
+
+admin.site.register(Guest, GuestAdmin)
