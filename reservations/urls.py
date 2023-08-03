@@ -10,4 +10,7 @@ urlpatterns = [
          name="reservation_details"),
     path("edit_guest/<int:guest_id>/", views.edit_guest, name="edit_guest"),
     path("assign_room/<int:guest_id>/", views.assign_room, name="assign_room"),
+    path("make_reservation/", views.make_reservation, name="make_reservation"),
+    path("reservation_success/", views.reservation_success,
+         name="reservation_success"),
 ]

@@ -1,3 +1,6 @@
+from .forms import ReservationForm
+from .models import Reservation
+from django.shortcuts import render, redirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
@@ -63,3 +66,19 @@ def assign_room(request, guest_id):
     else:
         form = ReservationForm()
     return render(request, "assign_room.html", {"form": form, "guest": guest})
+
+
+def make_reservation(request):
+    if request.method == "POST":
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            reservation = form.save()
+            return redirect("reservation_success")
+    else:
+        form = ReservationForm()
+
+    return render(request, "make_reservation.html", {"form": form})
+
+
+def reservation_success(request):
+    return render(request, "reservation_success.html")
