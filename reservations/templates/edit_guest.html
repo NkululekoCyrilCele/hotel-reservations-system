@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Guest Details</title>
+  </head>
+  <body>
+    <h1>Edit Guest Details</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Save Changes</button>
+    </form>
+  </body>
+</html>

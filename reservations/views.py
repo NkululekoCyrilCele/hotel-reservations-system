@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 
 from .models import Room, Guest, Reservation
+from .forms import GuestForm
 
 
 def register(request):
@@ -33,3 +34,16 @@ def guest_details(request):
 def reservation_details(request):
     reservations = Reservation.objects.all()
     return render(request, "reservation_details.html", {"reservations": reservations})
+
+
+def edit_guest(request, guest_id):
+    guest = get_object_or_404(Guest, id=guest_id)
+
+    if request.method == "POST":
+        form = GuestForm(request.POST, instance=guest)
+        if form.is_valid():
+            form.save()
+            return redirect("guest_details")
+    else:
+        form = GuestForm(instance=guest)
+    return render(request, "edit_guest.html", {"form": form})
