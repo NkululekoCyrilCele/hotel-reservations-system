@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reservation Details</title>
+  </head>
+  <body>
+    <h1>Reservation Details</h1>
+    <ul>
+      {% for reservation in reservations %}
+      <li>
+        Guest: {{ reservation.guest.name }}<br />
+        Room Number: {{ reservation.room.room_number }}<br />
+        Room Type: {{ reservation.room.get_room_type_display }}<br />
+        Check-In Date: {{ reservation.check_in_date }}<br />
+        Check-Out Date: {{ reservation.check_out_date }}<br />
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
