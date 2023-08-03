@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 
 from .models import Room, Guest, Reservation
-from .forms import GuestForm
+from .forms import GuestForm, ReservationForm
 
 
 def register(request):
@@ -47,3 +47,19 @@ def edit_guest(request, guest_id):
     else:
         form = GuestForm(instance=guest)
     return render(request, "edit_guest.html", {"form": form})
+
+
+def assign_room(request, guest_id):
+    guest = get_object_or_404(Guest, id=guest_id)
+
+    if request.POST == "POST":
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            selected_room_id = form.cleaned_data["room"]
+            selected_room = get_object_or_404(Room, id=selected_room_id)
+            reservation = Reservation.objects.create(
+                guest=guest, room=selected_room, check_in_date=form.cleaned_data["check_in_date"], check_out_date=form.cleaned_data["check_out_date"])
+            return redirect("guest_details")
+    else:
+        form = ReservationForm()
+    return render(request, "assign_room.html", {"form": form, "guest": guest})

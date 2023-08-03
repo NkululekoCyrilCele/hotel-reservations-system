@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assign Room</title>
+  </head>
+  <body>
+    <h1>Assign Room to {{ guest.name }}</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Assign Room</button>
+    </form>
+  </body>
+</html>
