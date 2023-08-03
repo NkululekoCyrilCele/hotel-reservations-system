@@ -1,12 +1,17 @@
 from .forms import ReservationForm
 from .models import Reservation
-from django.shortcuts import render, redirect
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import LoginView
 
-from .models import Room, Guest, Reservation
-from .forms import GuestForm, ReservationForm
+from django.shortcuts import render, redirect, get_object_or_404
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView, LogoutView
+
+from .models import Room, Guest, Reservation, Contact
+from .forms import GuestForm, ReservationForm, ContactForm
+
+
+def index(request):
+    return render(request, "index.html")
 
 
 def register(request):
@@ -82,3 +87,23 @@ def make_reservation(request):
 
 def reservation_success(request):
     return render(request, "reservation_success.html")
+
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = Contact.objects.create(
+                name=form.cleaned_data["name"],
+                email=form.cleaned_data["email"],
+                message=form.cleaned_data["message"]
+            )
+            return redirect("thank_you")
+    else:
+        form = ContactForm()
+
+    return render(request, "contact.html", {"form": form})
+
+
+def thank_you(request):
+    return render(request, "thank_you.html")

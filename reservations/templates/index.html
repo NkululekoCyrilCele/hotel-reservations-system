@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Hotel Website - Home{% endblock %}
+{%block content %}
+<!-- Hero Section -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="display-4">Welcome to Our Hotel</h1>
+    <p class="lead">Luxury Accommodation for Your Comfort</p>
+    <a href="{% url 'make_reservation' %}" class="btn btn-primary btn-lg"
+      >Book Now</a
+    >
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>About Us</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis,
+        justo et suscipit feugiat, urna lorem eleifend elit, vitae fermentum
+        mauris odio eu orci.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="hotel.jpg" alt="Hotel Image" class="img-fluid" />
+    </div>
+  </div>
+</div>
+{% endblock %}
