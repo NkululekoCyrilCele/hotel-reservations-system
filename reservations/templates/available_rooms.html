@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Available Rooms</title>
+  </head>
+  <body>
+    <h1>Available Rooms</h1>
+    <ul>
+      {% for room in available_rooms %}
+      <li>
+        Room Number: {{ room.room_number }}<br />
+        Room Type: {{ room.get_room_type_display }}<br />
+        Description: {{ room.description }}<br />
+        Price: {{ room.price }}<br />
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
